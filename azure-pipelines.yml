@@ -8,8 +8,9 @@ stages:
     pool:
       vmImage: 'Ubuntu-latest'
     continueOnError: true
-    steps:
-    - script: aws sts get-caller-identity
+  - script: |
+      az login
+      az pipelines variable-group list --group-name Harish
     
 # - stage: dev_deploy
 #   jobs:
