@@ -28,7 +28,7 @@ stages:
           zip -r my-function.zip .
           aws lambda update-function-code --function-name  my-function --zip-file fileb://my-function.zip
 
-############################################## pipeline with multiple stages ################
+############################################## pipeline with single job multiple stages ################
 
 # variables:
 # - group: my-variable-group
