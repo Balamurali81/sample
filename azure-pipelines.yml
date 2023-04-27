@@ -13,8 +13,9 @@ stages:
           export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY
           export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY
           export AWS_DEFAULT_REGION=$AWS_REGION
-          zip -j lambda_function.zip apps/trigger-engine/*.* 
-          aws lambda update-function-code --function-name  my-function --zip-file fileb://lambda_function.zip
+          cd /apps/trigger-engine
+          zip -r my-function.zip .
+          aws lambda update-function-code --function-name  my-function --zip-file fileb://my-function.zip
   - job: qa_lambda_function_update
     pool:
       vmImage: 'Ubuntu-latest'
@@ -23,8 +24,9 @@ stages:
           export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY
           export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY
           export AWS_DEFAULT_REGION=$AWS_REGION
-          zip -j lambda_function.zip apps/trigger-engine/*.* 
-          aws lambda update-function-code --function-name  my-function --zip-file fileb://lambda_function.zip
+          cd /apps/trigger-engine
+          zip -r my-function.zip .
+          aws lambda update-function-code --function-name  my-function --zip-file fileb://my-function.zip
 
 ############################################## pipeline with single job multiple stages ################
 
@@ -42,8 +44,9 @@ stages:
 #           export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY
 #           export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY
 #           export AWS_DEFAULT_REGION=$AWS_REGION
-#           zip -j lambda_function.zip apps/trigger-engine/*.* 
-#           aws lambda update-function-code --function-name  my-function --zip-file fileb://lambda_function.zip
+#           cd /apps/trigger-engine
+#           zip -r my-function.zip .
+#           aws lambda update-function-code --function-name  my-function --zip-file fileb://my-function.zip
 # - stage: qa_lambda_function_update
 #   jobs:
 #   - job: deploy_code
@@ -54,5 +57,6 @@ stages:
 #           export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY
 #           export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY
 #           export AWS_DEFAULT_REGION=$AWS_REGION
-#           zip -j lambda_function.zip apps/trigger-engine/*.* 
-#           aws lambda update-function-code --function-name  my-function --zip-file fileb://lambda_function.zip
+#           cd /apps/trigger-engine
+#           zip -r my-function.zip .
+#           aws lambda update-function-code --function-name  my-function --zip-file fileb://my-function.zip
