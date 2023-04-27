@@ -1,5 +1,5 @@
-variables:
-- group: my-variable-group
+# variables:
+# - group: my-variable-group
 
 stages:
 - stage: deploy_lambda_code
@@ -26,3 +26,32 @@ stages:
           cd /apps/trigger-engine
           zip -r my-function.zip .
           aws lambda update-function-code --function-name  my-function --zip-file fileb://my-function.zip
+
+############################################## multistage pipeline################
+# stages:
+# - stage: dev_lambda_function_update
+#   jobs:
+#   - job: deploy_code
+#     pool:
+#       vmImage: 'Ubuntu-latest'
+#     steps:
+#       - script: | 
+#           export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY
+#           export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY
+#           export AWS_DEFAULT_REGION=$AWS_REGION
+#           cd /apps/trigger-engine
+#           zip -r my-function.zip .
+#           aws lambda update-function-code --function-name  my-function --zip-file fileb://my-function.zip
+# - stage: qa_lambda_function_update
+#   jobs:
+#   - job: deploy_code
+#     pool:
+#       vmImage: 'Ubuntu-latest'
+#     steps:
+#       - script: | 
+#           export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY
+#           export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY
+#           export AWS_DEFAULT_REGION=$AWS_REGION
+#           cd /apps/trigger-engine
+#           zip -r my-function.zip .
+#           aws lambda update-function-code --function-name  my-function --zip-file fileb://my-function.zip
