@@ -1,5 +1,6 @@
-# variables:
-# - group: my-variable-group
+############################# pipeline with multiple jobs in one stage ###############
+variables:
+- group: my-variable-group
 
 stages:
 - stage: deploy_lambda_code
@@ -27,7 +28,11 @@ stages:
           zip -r my-function.zip .
           aws lambda update-function-code --function-name  my-function --zip-file fileb://my-function.zip
 
-############################################## multistage pipeline################
+############################################## pipeline with multiple stages ################
+
+# variables:
+# - group: my-variable-group
+
 # stages:
 # - stage: dev_lambda_function_update
 #   jobs:
