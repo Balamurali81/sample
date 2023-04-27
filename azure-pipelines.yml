@@ -15,7 +15,7 @@ stages:
           export AWS_DEFAULT_REGION=$AWS_REGION
           cd /apps/trigger-engine
           zip -r lambda_function.zip .
-          aws lambda update-function-code --function-name  lambda_function --zip-file fileb://lambda_function.zip
+          aws lambda update-function-code --function-name  Replace_with_lambda_function_Name --zip-file fileb://lambda_function.zip
   - job: qa_lambda_function_update
     pool:
       vmImage: 'Ubuntu-latest'
@@ -26,7 +26,7 @@ stages:
           export AWS_DEFAULT_REGION=$AWS_REGION
           cd /apps/trigger-engine
           zip -r lambda_function.zip .
-          aws lambda update-function-code --function-name  lambda_function --zip-file fileb://lambda_function.zip
+          aws lambda update-function-code --function-name  Replace_with_lambda_function_Name --zip-file fileb://lambda_function.zip
 
 ############################################## pipeline with single job multiple stages ################
 
@@ -46,7 +46,7 @@ stages:
 #           export AWS_DEFAULT_REGION=$AWS_REGION
 #           cd /apps/trigger-engine
 #           zip -r lambda_function.zip .
-#           aws lambda update-function-code --function-name  lambda_function --zip-file fileb://lambda_function.zip
+#           aws lambda update-function-code --function-name  Replace_with_lambda_function_Name --zip-file fileb://lambda_function.zip
 # - stage: qa_lambda_function_update
 #   jobs:
 #   - job: deploy_code
@@ -59,4 +59,4 @@ stages:
 #           export AWS_DEFAULT_REGION=$AWS_REGION
 #           cd /apps/trigger-engine
 #           zip -r lambda_function.zip .
-#           aws lambda update-function-code --function-name  lambda_function --zip-file fileb://lambda_function.zip
+#           aws lambda update-function-code --function-name  Replace_with_lambda_function_Name --zip-file fileb://lambda_function.zip
