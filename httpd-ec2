@@ -5,3 +5,9 @@ sudo systemctl enable httpd
 hostname bala-new-server1
 echo “Hello World from $(hostname -f)” > /var/www/html/index.html
 
+
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum install docker -y
+systemctl install docker -y
+docker pull httpd
