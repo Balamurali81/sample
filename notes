@@ -1,1 +1,8 @@
-dd
+step 1. Create docker file to create image with the code files
+step 2. Create ECR and push the docker image to ECR
+step 3. Refer the URI in lambda function
+
+
+docker build -t balapython .
+docker tag balapython 857896345731.dkr.ecr.us-east-1.amazonaws.com/ismart:bala5
+docker push  857896345731.dkr.ecr.us-east-1.amazonaws.com/ismart:bala5
