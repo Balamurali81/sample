@@ -1,0 +1,3 @@
+docker build -t balapython .
+docker tag balapython 857896345731.dkr.ecr.us-east-1.amazonaws.com/ismart:bala5
+docker push  857896345731.dkr.ecr.us-east-1.amazonaws.com/ismart:bala5
