@@ -3,6 +3,6 @@ step 2. Create ECR and push the docker image to ECR
 step 3. Refer the URI in lambda function
 
 
-
+https://docs.aws.amazon.com/lambda/latest/dg/python-image.html
 
 https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html
