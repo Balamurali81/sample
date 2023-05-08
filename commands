@@ -1,3 +1,6 @@
+
+TOKEN=$(aws ecr get-authorization-token --output text --query 'authorizationData[].authorizationToken')
+curl -i -H "Authorization: Basic $TOKEN" https://aws_account_id.dkr.ecr.region.amazonaws.com/v2/amazonlinux/tags/list
 docker build -t balapython .
 docker tag balapython 857896345731.dkr.ecr.us-east-1.amazonaws.com/ismart:bala5
 docker push  857896345731.dkr.ecr.us-east-1.amazonaws.com/ismart:bala5
