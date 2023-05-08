@@ -1,7 +1,9 @@
 step 1. Create docker file to create image with the code files
 step 2. Create ECR and push the docker image to ECR
 step 3. Refer the URI in lambda function
-
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker -y
 
 https://docs.aws.amazon.com/lambda/latest/dg/python-image.html
 
