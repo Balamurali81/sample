@@ -8,3 +8,5 @@ sudo yum install docker -y
 https://docs.aws.amazon.com/lambda/latest/dg/python-image.html
 
 https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html
+
+https://repost.aws/knowledge-center/authenticate-mfa-cli
