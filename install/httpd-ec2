@@ -12,3 +12,4 @@ yum install docker -y
 systemctl start docker
 docker pull httpd
 https://code.mendhak.com/lambda-docker-hello-world/
+
