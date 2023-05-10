@@ -5,3 +5,8 @@ curl -i -H "Authorization: Basic $TOKEN" https://aws_account_id.dkr.ecr.region.a
 docker build -t balapython .
 docker tag balapython 857896345731.dkr.ecr.us-east-1.amazonaws.com/ismart:bala5
 docker push  857896345731.dkr.ecr.us-east-1.amazonaws.com/ismart:bala5
+
+export AWS_DEFAULT_REGION=us-east-1
+export AWS_SHARED_CREDENTIALS_FILE=./creds
+export AWS_PROFILE=view
+aws configure set region us-east-1 --profile view
