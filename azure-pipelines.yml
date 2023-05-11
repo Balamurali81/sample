@@ -23,6 +23,7 @@ stages:
           cd apps/trigger-engine/
           zip -r lambda_function.zip .
           aws lambda update-function-code --function-name  <my-function> --zip-file fileb://lambda_function.zip
+          aws lambda update-function-code --function-name  <my-function> --image-uri ${ECR_URI}
           aws lambda update-function-configuration --function-name <my-function> --layers <layer arn-1> < layer arn -2>        
   - job: qa_lambda_function_update
     steps:
