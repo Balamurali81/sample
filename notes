@@ -5,6 +5,10 @@ sudo yum install -y yum-utils
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 sudo yum install docker -y
 
+share artifacts between stages in azure devops
+https://learn.microsoft.com/en-us/azure/devops/pipelines/artifacts/pipeline-artifacts?view=azure-devops&tabs=yaml-task
+
+
 https://docs.aws.amazon.com/aws-managed-policy/latest/reference/EC2InstanceProfileForImageBuilderECRContainerBuilds.html
 
 https://docs.aws.amazon.com/lambda/latest/dg/python-image.html
