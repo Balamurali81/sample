@@ -16,3 +16,12 @@ https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html
 https://repost.aws/knowledge-center/authenticate-mfa-cli
 
 https://docs.aws.amazon.com/lambda/latest/dg/images-test.html
+variables:
+- name: testEmpty
+  value: ''
+
+jobs:
+  - job: A
+    steps:
+    - script: echo testEmpty is blank
+    condition: eq(variables.testEmpty, '')
