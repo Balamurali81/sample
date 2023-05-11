@@ -16,6 +16,8 @@ https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html
 https://repost.aws/knowledge-center/authenticate-mfa-cli
 
 https://docs.aws.amazon.com/lambda/latest/dg/images-test.html
+https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops&tabs=yaml%2Cstages
+
 variables:
 - name: testEmpty
   value: ''
