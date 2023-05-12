@@ -3,9 +3,21 @@ variables:
 - group: my-variable-group
 pool:
   vmImage: 'Ubuntu-latest'
+  
+parameters:
+- name: app-name
+  displayName: select the app name
+  type: string
+#   default: ubuntu-latest
+  values:
+  - trigger-engine
+  - web
+  - api
+  - operation-engine
 
 stages:
 - stage: deploy_lambda_code
+  condition: eq(${{ parameters.image }}, trigger-engine)
   jobs:
   - job: create_lambda_layer
     pool:
