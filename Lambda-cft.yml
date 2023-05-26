@@ -1,0 +1,39 @@
+Resources:
+
+  OrchestraionEngineRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: OrchestraionEngineRole
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+                
+
+  OeTriggerEngine:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: OeTriggerEngine
+      Role: !GetAtt OrchestraionEngineRole.Arn
+      Runtime: python3.7
+      Handler: index.my_handler
+      Code:
+        ZipFile: |
+          def my_handler(event, context):
+            message = 'Hello Lambda World!'
+            return message
+
+  OeOutcomeEngine:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: OeOutcomeEngine
+      Role: !GetAtt OrchestraionEngineRole.Arn
+      Runtime: python3.7
+      Handler: index.my_handler
+      Code:
+        ZipFile: |
+          def my_handler(event, context):
+            message = 'Hello Lambda World!'
+            return message
