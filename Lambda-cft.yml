@@ -1,9 +1,9 @@
 Resources:
 
-  OrchestraionEngineRole:
+  lambdafnrole:
     Type: AWS::IAM::Role
     Properties:
-      RoleName: OrchestraionEngineRole
+      RoleName: lambdafnrole
       AssumeRolePolicyDocument:
         Statement:
           - Effect: Allow
@@ -12,11 +12,11 @@ Resources:
             Action: sts:AssumeRole
                 
 
-  OeTriggerEngine:
+  function2:
     Type: AWS::Lambda::Function
     Properties:
-      FunctionName: OeTriggerEngine
-      Role: !GetAtt OrchestraionEngineRole.Arn
+      FunctionName: function2
+      Role: !GetAtt lambdafnrole.Arn
       Runtime: python3.7
       Handler: index.my_handler
       Code:
@@ -25,11 +25,11 @@ Resources:
             message = 'Hello Lambda World!'
             return message
 
-  OeOutcomeEngine:
+  function1:
     Type: AWS::Lambda::Function
     Properties:
-      FunctionName: OeOutcomeEngine
-      Role: !GetAtt OrchestraionEngineRole.Arn
+      FunctionName: function1
+      Role: !GetAtt lambdafnrole.Arn
       Runtime: python3.7
       Handler: index.my_handler
       Code:
