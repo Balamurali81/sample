@@ -20,7 +20,12 @@ Resources:
         - arn:aws:iam::aws:policy/SecretsManagerReadWrite
         - arn:aws:iam::aws:policy/AmazonEventBridgeSchedulerFullAccess
         - arn:aws:iam::aws:policy/AmazonEventBridgeFullAccess
-                
+   
+   lamvdafun1url:
+    Type: AWS::Lambda::Url
+    Properties: 
+      AuthType: NONE
+      TargetFunctionArn: !Ref lambdafunc1deploy.Arn
 
   function2:
     Type: AWS::Lambda::Function
