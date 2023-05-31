@@ -52,3 +52,9 @@ Resources:
           def my_handler(event, context):
             message = 'Hello Lambda World!'
             return message
+  lamvdafun1resourceperm:
+    Type: AWS::Lambda::Permission
+    Properties: 
+      Action: String
+      FunctionName: String
+      Principal: String
