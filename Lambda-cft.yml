@@ -14,7 +14,7 @@ Resources:
     Properties: 
       Action: lambda:InvokeFunctionUrl
       FunctionName: !GetAtt balafn1lambda.Arn
-      Principal: arn:aws:iam::857896345731:user/skand
+      Principal: arn:aws:iam::*:user/bala
 
   lambdafn1role:
     Type: AWS::IAM::Role
