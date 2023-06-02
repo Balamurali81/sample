@@ -7,6 +7,10 @@ Resources:
       Cors:
         AllowOrigins:
           - '*'
+        AllowCredentials: false
+        AllowMethods: 
+          - GET
+          - POST
       TargetFunctionArn: !GetAtt balafn1lambda.Arn
 
   lambdafun1resourceperm:
