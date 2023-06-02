@@ -1,9 +1,25 @@
 Resources:
 
-  lambdafnrole:
+  createlambdafun1url:
+    Type: AWS::Lambda::Url
+    Properties: 
+      AuthType: NONE
+      Cors:
+        AllowOrigins:
+          - '*'
+      TargetFunctionArn: !GetAtt balafn1lambda.Arn
+
+  lambdafun1resourceperm:
+    Type: AWS::Lambda::Permission
+    Properties: 
+      Action: lambda:InvokeFunctionUrl
+      FunctionName: !GetAtt balafn1lambda.Arn
+      Principal: arn:aws:iam::857896345731:user/skand
+
+  lambdafn1role:
     Type: AWS::IAM::Role
     Properties:
-      RoleName: lambdafnrole
+      RoleName: Lambdafnrole-poc2
       AssumeRolePolicyDocument:
         Statement:
           - Effect: Allow
@@ -12,26 +28,12 @@ Resources:
             Action: sts:AssumeRole
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
-        - arn:aws:iam::aws:policy/CloudWatchLogsFullAccess
-        - arn:aws:iam::aws:policy/AmazonEC2FullAccess
-        - arn:aws:iam::aws:policy/AmazonRedshiftFullAccess
-        - arn:aws:iam::aws:policy/AmazonSQSFullAccess
-        - arn:aws:iam::aws:policy/CloudWatchEventsFullAccess
-        - arn:aws:iam::aws:policy/SecretsManagerReadWrite
-        - arn:aws:iam::aws:policy/AmazonEventBridgeSchedulerFullAccess
-        - arn:aws:iam::aws:policy/AmazonEventBridgeFullAccess
-   
-   lamvdafun1url:
-    Type: AWS::Lambda::Url
-    Properties: 
-      AuthType: NONE
-      TargetFunctionArn: !Ref lambdafunc1deploy.Arn
 
-  function2:
+  balafn1lambda:
     Type: AWS::Lambda::Function
     Properties:
-      FunctionName: function2
-      Role: !GetAtt lambdafnrole.Arn
+      FunctionName: balapoc2
+      Role: !GetAtt lambdafn1role.Arn
       Runtime: python3.7
       Handler: index.my_handler
       Code:
@@ -40,21 +42,3 @@ Resources:
             message = 'Hello Lambda World!'
             return message
 
-  function1:
-    Type: AWS::Lambda::Function
-    Properties:
-      FunctionName: function1
-      Role: !GetAtt lambdafnrole.Arn
-      Runtime: python3.7
-      Handler: index.my_handler
-      Code:
-        ZipFile: |
-          def my_handler(event, context):
-            message = 'Hello Lambda World!'
-            return message
-  lamvdafun1resourceperm:
-    Type: AWS::Lambda::Permission
-    Properties: 
-      Action: String
-      FunctionName: String
-      Principal: String
