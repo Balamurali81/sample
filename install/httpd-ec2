@@ -3,13 +3,12 @@ sudo yum update -y
 sudo yum install -y httpd
 sudo systemctl start httpd
 sudo systemctl enable httpd
-INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
-VPC_ID=$(curl -s http://169.254.169.254/latest/meta-data/network/interfaces/macs/$(curl -s http://169.254.169.254/latest/meta-data/network/interfaces/macs/)/vpc-id)
-echo “Hello World from $(INSTANCE_ID) located at vpc $9VPC_ID) at zone  $(ec2-metadata -z)” > /var/www/html/index.html
+echo “Hello World from $(ec2-metadata -i) public ip $(ec2-metadata -p)” located at $(ec2-metadata -z)” > /var/www/html/index.html
 sudo systemctl restart httpd
 
-
-echo “Hello World from $(ec2-metadata -i) located at $(ec2-metadata -z)” >> /var/www/html/index.html
+INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+VPC_ID=$(curl -s http://169.254.169.254/latest/meta-data/network/interfaces/macs/$(curl -s http://169.254.169.254/latest/meta-data/network/interfaces/macs/)/vpc-id)
+echo “Hello World from $(ec2-metadata -i) public ip $(ec2-metadata -p)” located at $(ec2-metadata -z)” >> /var/www/html/index.html
 echo “Hello World from $(hostname -f)” >> /var/www/html/index.html
 
 
