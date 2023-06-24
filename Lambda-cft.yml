@@ -1,3 +1,11 @@
+Parameters:
+  EnvironmentName:
+    Type: String
+    Default: MyProd
+  ApplicationName:
+    Type: String
+    Default: sample
+
 Resources:
 
   createlambdafun1url:
@@ -23,7 +31,7 @@ Resources:
   lambdafn1role:
     Type: AWS::IAM::Role
     Properties:
-      RoleName: Lambdafnrole-poc2
+      RoleName: !Sub '{ApplicationName}-iamrole-${EnvironmentName}'
       AssumeRolePolicyDocument:
         Statement:
           - Effect: Allow
@@ -36,7 +44,7 @@ Resources:
   balafn1lambda:
     Type: AWS::Lambda::Function
     Properties:
-      FunctionName: balapoc2
+      FunctionName: !Sub '{ApplicationName}-${EnvironmentName}'
       Role: !GetAtt lambdafn1role.Arn
       Runtime: python3.7
       Handler: index.my_handler
